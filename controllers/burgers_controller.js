@@ -1,29 +1,29 @@
 const express = require('express')
-const burger = require('../models/burgers');
 const router = express.Router();
+const burger = require('../models/burgers');
 
-router.get('/', function(req, res) {
-    res.redirect('/burgerHome');
+router.get('/', function (req, res) {
+    burger.getAll(function(result) {
+        res.render('index', { burger: result })
+    }); 
 });
 
-router.get('/burgerHome', function (req, res){
-    burger.selectAll((burgerData)=> {
-        res.render('index', { burger_data: burgerData })
-    }) 
-});
-
-router.post('/burgerHome/create', function(req, res) {
-    burger.insertOne(req.body.burger_name,(result) => {
-        console.log(result);
-        res.redirect('/burgerHome');
-    })
-});
-
-router.put('/burgerHome/:id', function(req, res){
-    burger.updateOne(req.params.id, (result) =>{
-        console.log(results);
-        res.sendStatus(200);
+router.post('/api/burger',  function(req, res) {
+    burger.create(req.body, function(result) {
+        res.json({
+            id: result.insertID
+        });
     });
 });
 
+router.put('/:id', function(req, res){
+    let status = 'id = ' + req.params.id;
+    burger.updateOne({
+        status: req.body.status
+    }, status, (result) =>{
+        console.log('item has been updated');
+        res.sendStatus(200);
+    });
+});
+ 
 module.exports = router;
