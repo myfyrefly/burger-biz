@@ -1,6 +1,5 @@
 const connection = require('./connection');
 
-// code from party activity, method names changed, 'guts' need modification still
 var orm = {
     selectAll: function(tableName, callback) {
       connection.query("SELECT * FROM ??", [tableName], function(err, result) {
@@ -10,8 +9,8 @@ var orm = {
         callback(result);
       });
     },
-    insertOne: function(tableName, callback) {
-        connection.query("INSERT INTO ?? SET ??", [tableName], function(err, result) {
+    insertOne: function(tableName, newBurger, callback) {
+        connection.query("INSERT INTO ?? SET ?", [tableName, newBurger], function(err, result) {
             if (err) {
                 throw err;
             }
