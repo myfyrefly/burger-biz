@@ -1,16 +1,13 @@
-
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-
-$(function() {
-    $(".burger-ready").on("click", function(event) {
+$(document).ready(function() {
+    $(".devour-form").on("click", function(event) {
+      //var id = $(this).children(".burger_id").val();
       var id = $(this).data("id");
-      // var newStatus = $(this).data('newStatus');
-      var burgerEaten = {
-          devoured: true
-      };
+      console.log(id);
+     
       $.ajax("/api/burger/" + id, {
         type: "PUT",
-        data: burgerEaten
+        // data: burgerEaten
+        //URL: "/:id" + id
       }).then(
         function() {
           console.log("NOM NOM NOM!");

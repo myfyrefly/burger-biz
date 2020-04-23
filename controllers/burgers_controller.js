@@ -16,14 +16,14 @@ router.post('/api/burger',  function(req, res) {
     });
 });
 
-router.put('/:id', function(req, res){
-    let status = 'id = ' + req.params.id;
-    burger.updateOne({
-        status: req.body.status
-    }, status, (result) =>{
-        console.log('item has been updated');
-        res.sendStatus(200);
+router.put("api/burger/:id", function(req, res) {
+    var status = "id = " + req.params.id;
+  console.log(status);
+    burger.update({
+      status: req.body.status
+    }, status, function() {
+      res.redirect("/")
     });
-});
+  });
  
 module.exports = router;
