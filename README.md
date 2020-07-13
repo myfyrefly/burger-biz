@@ -6,11 +6,11 @@ A simple restaurant app that lets users input the names of burgers they'd like t
 
 # Libraries/Technologies Used
 
-    * mySQL
-    * Express
-    * Handlebars
-    * Animate.css
-    * Materialize.css
+- mySQL
+- Express
+- Handlebars
+- Animate.css
+- Materialize.css
 
 # Deployed Application
 
