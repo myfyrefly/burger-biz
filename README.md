@@ -1,22 +1,17 @@
-    ## Title 
-    burger-biz
-    [![GitHub license](https://img.shields.io/badge/license-None-blue.svg)](https://github.com/myfyrefly/burger-biz)
-    ## Description
-    a CRUD application for logging & creating burgers to eat
+# Burger Biz
 
-    ##License
-        This project is licensed under the following: None
+![Burger Biz homepage](/images/burger-biz.jpg "Burger Biz Homepage")
 
-    ## Installation
-    npm i
+A simple restaurant app that lets users input the names of burgers they'd like to eat.
 
-    ## License
-    * None
+# Libraries/Technologies Used
 
-    ## Dependencies/Technologies
     * mySQL
-    * express
-    * express-handlebars
-    * nodemon(dev dependencies)
-    * animate.css 
-    * materialize.css
+    * Express
+    * Handlebars
+    * Animate.css
+    * Materialize.css
+
+# Deployed Application
+
+https://polar-beach-58147.herokuapp.com/

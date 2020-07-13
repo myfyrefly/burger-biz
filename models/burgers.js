@@ -11,11 +11,12 @@ var burger = {
         callback(result);
       });
     },
-    update: function(objColVals, status, callback) {
-      orm.updateOne("burgers", objColVals, status, function(result) {
-        callback(result);
-      });
-  }
+    update: function(objID, callback) {
+      var burgerObjId = objID;
+      orm.updateOne("burgers", {
+        devoured: true
+      }, burgerObjId, callback);
+    }
 };
   
   module.exports = burger;

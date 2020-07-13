@@ -16,13 +16,15 @@ router.post('/api/burger',  function(req, res) {
     });
 });
 
-router.put("api/burger/:id", function(req, res) {
-    var status = "id = " + req.params.id;
-  console.log(status);
-    burger.update({
-      status: req.body.status
-    }, status, function() {
-      res.redirect("/")
+router.put("/api/burger/:id", function(req, res) {
+    // var status = "id = " + req.params.id;
+    console.log(status);
+    burger.update(
+    req.params.id
+    , function(result) {
+     console.log(result);
+      res.sendStatus(200);
+    // res.redirect("/")
     });
   });
  

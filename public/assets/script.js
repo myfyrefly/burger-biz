@@ -1,16 +1,15 @@
 $(document).ready(function() {
-    $(".devour-form").on("click", function(event) {
-      //var id = $(this).children(".burger_id").val();
-      var id = $(this).data("id");
-      console.log(id);
-     
-      $.ajax("/api/burger/" + id, {
+    $(".devour-form").on("submit", function(event) {
+      event.preventDefault();
+      var id = $(this).children(".burger_id").val();
+      console.log(id);     
+      $.ajax({
         type: "PUT",
-        // data: burgerEaten
-        //URL: "/:id" + id
+        url: "/api/burger/" + id
       }).then(
-        function() {
+        function(data) {
           console.log("NOM NOM NOM!");
+          console.log(data);
           location.reload();
         }
       );
